@@ -1,0 +1,4 @@
+project_id      = "..."
+billing_account = "..."
+project_number  = "..."
+github_repo     = "alik-r/qutapay"
