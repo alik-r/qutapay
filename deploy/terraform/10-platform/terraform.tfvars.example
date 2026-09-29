@@ -1,0 +1,4 @@
+project_id = "..."
+my_ip_cidrs = { 
+    first_ip = "<ip>/32"
+}
