@@ -1,0 +1,27 @@
+envs: [staging]
+
+services:
+  merchant:
+    ksa: merchant-api # KSA = K8S Service Account
+    db: true
+    secrets: []
+    publish: []
+    subscribe: []
+  payments:
+    ksa: payments-api
+    db: true
+    secrets: []
+    publish: [payment-succeeded]
+    subscribe: []
+  pspgw:
+    ksa: psp-gateway
+    db: false
+    secrets: [psp-api-key]
+    publish: []
+    subscribe: []
+  dispatcher:
+    ksa: webhook-dispatcher
+    db: true
+    secrets: [webhook-signing-key]
+    publish: []
+    subscribe: [payment-succeeded-dispatch]
