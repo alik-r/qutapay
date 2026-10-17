@@ -24,10 +24,10 @@ resource "google_pubsub_topic_iam_member" "publish" {
 }
 
 resource "google_pubsub_subscription_iam_member" "subscribe" {
-  for_each = module.services.subscribe_grants
-  subscription    = each.value.sub
-  role     = "roles/pubsub.subscriber"
-  member   = data.google_service_account.svc[each.value.identity].member
+  for_each     = module.services.subscribe_grants
+  subscription = each.value.sub
+  role         = "roles/pubsub.subscriber"
+  member       = data.google_service_account.svc[each.value.identity].member
 
   depends_on = [google_pubsub_subscription.payment_succeeded_dispatch]
 }
